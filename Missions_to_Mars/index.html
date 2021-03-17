@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">scrape new data</a></p>
+    </div>
+
+    <div class='container'>
+        <h2>Latest Mars news</h2>
+        <h4><a href="https://mars.nasa.gov/news/news/8888/new-study-challenges-long-held-theory-of-fate-of-mars-water/" target="_blank">New Study Challenges Long-Held Theory of Fate of Mars' Water</a></h4>
+        <p ><em>The new science results indicate that a large quantity of the Red Planet’s water is trapped in its crust rather than having escaped into space.</em></p>
+    </div>
+
+    <div class='container'>
+        <div class="row">
+            <div class="col-lg-8">
+                <h2>Featured Mars Image</h2>
+                <img src="{{ mars.featured_image_url }}" width="100%" alt="featured mars image">
+            </div>
+            <div class="col-lg-4">
+                <h2>Mars Facts</h2>
+                {{ mars.html_mars_tbl | safe }}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row text-center">
+            <h2>Mars Hemispheres</h2>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="{{ mars.hemisphere_image_list.0.img_url }}" width="100%" class="card-img-top" alt="{{ mars.hemisphere_image_list.0.title }}">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ mars.hemisphere_image_list.0.title }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="{{ mars.hemisphere_image_list.1.img_url }}" width="100%" class="card-img-top" alt="{{ mars.hemisphere_image_list.1.title }}">
+                    <div class="card-body">
+                      <h3 class="card-title">{{ mars.hemisphere_image_list.1.title }}</h5>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="{{ mars.hemisphere_image_list.2.img_url }}" width="100%" class="card-img-top" alt="{{ mars.hemisphere_image_list.2.title }}">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ mars.hemisphere_image_list.2.title }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="{{ mars.hemisphere_image_list.3.img_url }}" width="100%" class="card-img-top" alt="{{ mars.hemisphere_image_list.3.title }}">
+                    <div class="card-body">
+                      <h3 class="card-title">{{ mars.hemisphere_image_list.3.title }}</h5>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+ 
+</body>
+</html>
