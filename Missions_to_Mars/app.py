@@ -14,12 +14,12 @@ mongo = PyMongo(app)
 def index():
     # connect no-sql database with PyMongo
     mars_data = mongo.db.mars_data.find_one()
-    # Use render_templates() to connect your database with your html file and render the desired data into dashboard
+    # Use render_templates() to connect your database with your html file and render the desired data into my dashboard
     return render_template("index.html", mars=mars_data)
 
 # Create a route to your scrape function you created scrape_mars.py and upload the returned dictionary to the mongodb database
 @app.route("/scrape")
-def scraper():
+def scrape():
     # define the database collection and connect to mongo db
     mars_data = mongo.db.mars_data
     # call the scrape() function you imported above 

@@ -100,36 +100,36 @@ def scrape():
 
     # Start the for loop
     for item in image_links:
-        
+            
         # Find the url link string from the 'a' tag and call the 'href' string
         link = item.find('a')['href']
-        
+           
         # Combine the root url from above and the link url
         combo_url = root_usgs_url + link
-        
+          
         # Open splinter browser using the combo_url link just created
         browser.visit(combo_url)
-        
+          
         # Let the browser load for 1 second before scraping data
         time.sleep(1)
-        
+         
         # Create BeautifulSoup object
         soup = bs(browser.html, 'html.parser')
-        
+            
         # Find the link to the image in the 'ul' tag, then the 'a' tag, and then call the second item 'href'
         # Store link string in variable 'image_link_hemi'
         image_link_hemi = soup.find('ul').find_all('a')[0]['href']
-        
+            
         # Find the title name using the 'h2' tag and class attribute 'title', and then pull the .text
         # Store title in variable 'title_text'
         title_text = soup.find('h2', class_='title').text
-        
+           
         # Append the hemisphere list with a dictionary of the keys and values
         hemisphere_image_list.append({
             'title': title_text, 
             'img_url': image_link_hemi
-        })
-        
+            })
+            
         time.sleep(1)
 
     # Create a dictionary of all the web scraped data
